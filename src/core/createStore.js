@@ -1,5 +1,10 @@
-export default function createStore (dataMap = {}) {
+export default function createStore (data = {}) {
   let subscriptions = [];
+
+  let dataMap = {};
+  for(prop in data) {
+    dataMap[prop] = data[prop];
+  }
 
   const subscribe = (func) => {
     subscriptions.push(func);
